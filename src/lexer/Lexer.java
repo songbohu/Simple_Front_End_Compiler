@@ -1,18 +1,20 @@
 package lexer;
 
+import symbols.Type;
+
 import java.io.IOException;
+import java.util.Hashtable;
 
 /**
  * Created by Mac on 2018/6/16.
  */
 
-//import symbols.*;
 
 public class Lexer {
 
     public static int line = 1;
     char peek = ' ';
-    java.util.Hashtable words = new java.util.Hashtable();
+    Hashtable words = new Hashtable();
 
     void reserve(Word w){
         words.put(w.lexeme,w);
@@ -26,10 +28,10 @@ public class Lexer {
         reserve(new Word("break",Tag.BREAK));
         reserve(Word.True);
         reserve(Word.False);
-//        reserve(Type.Int);
-//        reserve(Type.Char);
-//        reserve(Type.Bool);
-//        reserve(Type.Float);
+        reserve(Type.Int);
+        reserve(Type.Char);
+        reserve(Type.Bool);
+        reserve(Type.Float);
     }
 
     void readch() throws IOException{
