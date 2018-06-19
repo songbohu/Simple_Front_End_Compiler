@@ -25,15 +25,16 @@ public class Parser {
         look = lex.scan();
     }
 
+    void error(String s) { throw new Error("near line "+lex.line+": "+s); }
+
     void match(int t) throws IOException{
         if(look.tag == t){
             move();
         }else{
-            error("sytax error");
+            error("syntax error");
         }
     }
 
-    void error(String s) { throw new Error("near line "+lex.line+": "+s); }  //?
 
     public void program() throws IOException{
         Stmt s = block();
@@ -70,7 +71,7 @@ public class Parser {
     Type type() throws IOException{
         Type p = (Type) look;
         match(Tag.BASIC);
-        if(look.tag == '['){
+        if(look.tag != '['){
             return p;
         }else{
             return dims(p);
@@ -133,6 +134,7 @@ public class Parser {
             case Tag.BREAK:
                 match(Tag.BREAK);
                 match(';');
+                return new Break();
             case '{':
                 return block();
             default:
