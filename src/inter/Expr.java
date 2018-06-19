@@ -6,12 +6,13 @@ import symbols.Type;
 /**
  * Created by Mac on 2018/6/16.
  */
-public class Expr extends Node {
+public class Expr extends Node{
+
     public Token op;
     public Type type;
     Expr(Token tok, Type p){
-        this.op = tok;
-        this.type = p;
+        op = tok;
+        type = p;
     }
 
     public Expr gen(){
@@ -27,7 +28,7 @@ public class Expr extends Node {
     }
 
     public void emitjumps(String test, int t, int f){
-        if(t!=0 && f != 0){
+        if(t != 0 && f != 0){
             emit("if " + test + " goto L" + t);
             emit("goto L" + f);
         }

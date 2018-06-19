@@ -10,8 +10,9 @@ public class Node {
     Node(){
         lexline = Lexer.line;
     }
+
     void error(String s){
-        throw new Error("near line " + lexline + ":+s");
+        throw new Error("near line " + lexline + ": " + s);
     }
 
     static int labels = 0;

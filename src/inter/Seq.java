@@ -15,10 +15,10 @@ public class Seq extends Stmt{
         }else if(stmt2 == Stmt.Null){
             stmt1.gen(b,a);
         }else{
-            int lable  = newlabel();
-            stmt1.gen(b,lable);
-            emitlabel(lable);
-            stmt2.gen(lable,a);
+            int label  = newlabel();
+            stmt1.gen(b,label);
+            emitlabel(label);
+            stmt2.gen(label,a);
         }
     }
 }
