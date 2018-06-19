@@ -91,6 +91,7 @@ public class Lexer {
             }
             return new Real(x);
         }
+
         if(Character.isLetter(peek)){
           StringBuffer b = new StringBuffer();
           do{

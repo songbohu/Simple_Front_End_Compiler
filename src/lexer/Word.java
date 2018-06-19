@@ -3,11 +3,11 @@ package lexer;
 /**
  * Created by Mac on 2018/6/16.
  */
-public class Word extends Token {
+public class Word extends Token{
     public String lexeme = "";
     public Word(String s, int tag){
         super(tag);
-        this.lexeme = s;
+        lexeme = s;
     }
 
     public String toString(){
