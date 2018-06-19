@@ -30,6 +30,6 @@ public class SetElem extends Stmt{
     public void gen(int b, int a){
         String s1 = index.reduce().toString();
         String s2 = expr.reduce().toString();
-        emit(array.toString() + " [ " + s1 + " ]" + s2);
+        emit(array.toString() + " [ " + s1 + " ] = " + s2);
     }
 }
